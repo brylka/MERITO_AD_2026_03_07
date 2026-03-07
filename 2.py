@@ -17,23 +17,32 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 k_range = range(1, 31)
+scores = []
 
 for k in k_range:
     knn = KNeighborsClassifier(n_neighbors=k)
     knn.fit(X_train_scaled, y_train)
     y_pred = knn.predict(X_test_scaled)
-    print(f"{k}: {accuracy_score(y_test, y_pred)}")
+    # print(f"{k}: {accuracy_score(y_test, y_pred)}")
+    scores.append(accuracy_score(y_test, y_pred))
 
+plt.figure(figsize=(10,5))
+plt.plot(k_range, scores, marker='o')
+plt.title('Dokładność KNN dla różnych wartości k')
+plt.xlabel('Wartość k')
+plt.ylabel('Dokładność')
+plt.grid(True)
+plt.show()
 
-dt_classifier = KNeighborsClassifier(
+knn_classifier = KNeighborsClassifier(
     n_neighbors=3,
     weights='distance',     # 'uniform'
     metric='euclidean'      # 'manhattan', 'minkowski'
 )
 
-dt_classifier.fit(X_train_scaled, y_train)
+knn_classifier.fit(X_train_scaled, y_train)
 
-y_pred = dt_classifier.predict(X_test_scaled)
+y_pred = knn_classifier.predict(X_test_scaled)
 
 print(f"Dokładność: {accuracy_score(y_test, y_pred)}")
 print("Raport klasyfikacji:")
