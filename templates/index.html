@@ -13,5 +13,8 @@
         Petal width: <input type="number" name="petal_width" step="0.1" required><br>
         <button type="submit">Klasyfikuj</button>
     </form>
+    {% if wynik %}
+        <h2>Wynik: {{ wynik }} </h2>
+    {% endif %}
 </body>
 </html>
