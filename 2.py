@@ -3,7 +3,6 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
-from sklearn import tree
 from sklearn.preprocessing import StandardScaler
 
 iris = load_iris()
@@ -49,4 +48,7 @@ print("Raport klasyfikacji:")
 print(classification_report(y_test, y_pred, target_names=iris.target_names))
 
 
-
+# Uruchom kod dla różnych zakresów k (1-10, 1-50):
+# Jak zmienia sie optymalne k?
+# Czy większy zakres daje lepsze wyniki?
+# Potestuj z różnym podziałem train/test i random_state
