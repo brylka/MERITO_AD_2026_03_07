@@ -9,13 +9,11 @@ klasy = ['setosa', 'versicolor', 'virginica']
 def index():
     wynik = None
     if request.method == 'POST':
-        sepal_length = float(request.form['sepal_length'])
-        sepal_width = float(request.form['sepal_width'])
-        petal_length = float(request.form['petal_length'])
-        petal_width = float(request.form['petal_width'])
-        cechy = [[sepal_length, sepal_width, petal_length, petal_width]]
-        y_pred = model.predict(cechy)[0]
-        wynik = klasy[y_pred]
+        cechy = [[float(request.form['sepal_length']),
+                  float(request.form['sepal_width']),
+                  float(request.form['petal_length']),
+                  float(request.form['petal_width'])]]
+        wynik = klasy[model.predict(cechy)[0]]
     return render_template("index.html", wynik=wynik)
 
 if __name__ == "__main__":
