@@ -16,6 +16,15 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
+k_range = range(1, 31)
+
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    knn.fit(X_train_scaled, y_train)
+    y_pred = knn.predict(X_test_scaled)
+    print(f"{k}: {accuracy_score(y_test, y_pred)}")
+
+
 dt_classifier = KNeighborsClassifier(
     n_neighbors=3,
     weights='distance',     # 'uniform'
