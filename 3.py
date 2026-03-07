@@ -3,14 +3,14 @@ from sklearn.metrics import auc, accuracy_score, classification_report, roc_curv
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler, label_binarize
+from sklearn.preprocessing import label_binarize
 
 iris = load_iris()
 X = iris.data
 y = iris.target
 
 X_train, X_test, y_train, y_test = train_test_split(X, y,
-                                test_size=0.3, random_state=41)
+                                test_size=0.3, random_state=42)
 
 
 gnb_classifier = GaussianNB()
