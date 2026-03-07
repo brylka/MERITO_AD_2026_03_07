@@ -13,11 +13,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
                                 test_size=0.3, random_state=42)
 
 
-knn_classifier = GaussianNB()
+gnb_classifier = GaussianNB()
 
-knn_classifier.fit(X_train, y_train)
+gnb_classifier.fit(X_train, y_train)
 
-y_pred = knn_classifier.predict(X_test)
+y_pred = gnb_classifier.predict(X_test)
 
 print(f"Dokładność: {accuracy_score(y_test, y_pred)}")
 print("Raport klasyfikacji:")
