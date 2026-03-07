@@ -18,7 +18,13 @@ gnb_classifier = GaussianNB()
 gnb_classifier.fit(X_train, y_train)
 
 y_pred = gnb_classifier.predict(X_test)
+y_proba = gnb_classifier.predict_proba(X_test)
+
+# print(y_test)
+# print(y_pred)
+# print(y_proba)
 
 print(f"Dokładność: {accuracy_score(y_test, y_pred)}")
 print("Raport klasyfikacji:")
 print(classification_report(y_test, y_pred, target_names=iris.target_names))
+
