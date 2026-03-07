@@ -4,19 +4,23 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
 from sklearn import tree
+from sklearn.preprocessing import StandardScaler
 
 iris = load_iris()
 X = iris.data
 y = iris.target
 
 X_train, X_test, y_train, y_test = train_test_split(X, y,
-                                test_size=0.8, random_state=42)
+                                test_size=0.3, random_state=42)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
 
 dt_classifier = KNeighborsClassifier()
 
-dt_classifier.fit(X_train, y_train)
+dt_classifier.fit(X_train_scaled, y_train)
 
-y_pred = dt_classifier.predict(X_test)
+y_pred = dt_classifier.predict(X_test_scaled)
 
 print(f"Dokładność: {accuracy_score(y_test, y_pred)}")
 print("Raport klasyfikacji:")
