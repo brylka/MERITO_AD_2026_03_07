@@ -1,6 +1,9 @@
 import joblib
 from sklearn.datasets import load_iris
 from sklearn.tree import DecisionTreeClassifier
+# from sklearn.naive_bayes import GaussianNB
+# from sklearn.neighbors import KNeighborsClassifier
+# pamiętaj przy KNN należy także przeskalować dane - więc zapis/odczyt scalar
 
 
 data = load_iris()
