@@ -16,7 +16,11 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-dt_classifier = KNeighborsClassifier()
+dt_classifier = KNeighborsClassifier(
+    n_neighbors=3,
+    weights='distance',     # 'uniform'
+    metric='euclidean'      # 'manhattan', 'minkowski'
+)
 
 dt_classifier.fit(X_train_scaled, y_train)
 
