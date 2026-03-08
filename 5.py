@@ -17,4 +17,11 @@ kmeans = KMeans(
 
 y_kmeans = kmeans.fit_predict(X_blobs)
 
-print(y_true, '\n', y_kmeans)
+plt.figure(figsize=(8,5))
+plt.scatter(X_blobs[:, 0], X_blobs[:, 1], c=y_kmeans)
+plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1],
+            marker='X', c='red', s=100)
+plt.show()
+
+
+# print(y_true, '\n', y_kmeans)
