@@ -4,7 +4,7 @@ from sklearn.metrics import silhouette_score
 import matplotlib.pyplot as plt
 
 X_blobs, y_true = make_blobs(n_samples=100, centers=4,
-                cluster_std=0.6, random_state=42)
+                cluster_std=0.6, random_state=41)
 
 plt.figure(figsize=(8,5))
 plt.scatter(X_blobs[:, 0], X_blobs[:, 1], c=y_true)
