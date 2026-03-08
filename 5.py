@@ -3,8 +3,8 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 import matplotlib.pyplot as plt
 
-X_blobs, y_true = make_blobs(n_samples=100, centers=4,
-                cluster_std=0.6, random_state=41)
+X_blobs, y_true = make_blobs(n_samples=400, centers=4,
+                cluster_std=1, random_state=40)
 
 plt.figure(figsize=(8,5))
 plt.scatter(X_blobs[:, 0], X_blobs[:, 1], c=y_true)
@@ -41,6 +41,7 @@ plt.show()
 
 kmeans = KMeans(
     n_clusters=4,
+    n_init=10,
     max_iter=300,
     random_state=42
 )
